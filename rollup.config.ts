@@ -4,16 +4,19 @@ import typescript from "@rollup/plugin-typescript";
 export default defineConfig([
   {
     plugins: [typescript({ tsconfig: "./tsconfig.json" })],
-    input: "src/index.ts",
+    input: ["src/cwv.ts", "src/check.ts"],
     output: [
       {
         format: "es",
-        file: "dist/index.esm.js",
+        entryFileNames: "[name].mjs.js",
+        dir: "dist",
       },
       {
         format: "cjs",
-        file: "dist/index.cjs.js",
+        entryFileNames: "[name].cjs.js",
+        dir: "dist",
       },
     ],
+    external: ["fs", "path"], // 将 fs 和 path 标记为外部模块
   },
 ]);
