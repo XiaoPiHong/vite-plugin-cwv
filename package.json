@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-cwv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Notification after checking web app version",
   "exports": {
     ".": {
