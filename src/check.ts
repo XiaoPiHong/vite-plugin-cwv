@@ -55,8 +55,9 @@ function handleCheck(options: ICheckOptions) {
 
 export default function check(options?: ICheckOptions) {
   const mergeOptions = Object.assign(_options, options || {});
+  console.log(mergeOptions);
   /** 只有生产环境才会轮训 */
-  if (mergeOptions.checkCondition!()) return;
+  if (!mergeOptions.checkCondition!()) return;
   /** 轮训版本文件 */
   versionConfig.timer = window.setInterval(() => {
     handleCheck(mergeOptions).then(() => {
