@@ -2,27 +2,23 @@
   "name": "vite-plugin-cwv",
   "version": "1.0.1",
   "description": "Notification after checking web app version",
+  "type": "module",
+  "main": "dist/check.cjs",
+  "module": "dist/check.mjs",
   "exports": {
     ".": {
-      "types": "./dist/cwv.d.ts",
-      "import": "./dist/cwv.mjs",
-      "require": "./dist/cwv.cjs"
-    },
-    "./cwv": {
-      "types": "./dist/cwv.d.ts",
-      "import": "./dist/cwv.mjs",
-      "require": "./dist/cwv.cjs"
-    },
-    "./check": {
-      "types": "./dist/check.d.ts",
       "import": "./dist/check.mjs",
-      "require": "./dist/check.cjs"
+      "require": "./dist/check.cjs",
+      "types": "./dist/check.d.ts"
+    },
+    "./plugin": {
+      "import": "./dist/plugin.mjs",
+      "require": "./dist/plugin.cjs",
+      "types": "./dist/plugin.d.ts"
     }
   },
-  "type": "module",
   "scripts": {
-    "clean": "npx rimraf dist",
-    "build": "npm run clean && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
+    "build": "npx rimraf dist && rollup --config rollup.config.ts --configPlugin @rollup/plugin-typescript",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [

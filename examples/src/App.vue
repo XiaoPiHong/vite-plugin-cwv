@@ -1,5 +1,20 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from "./components/HelloWorld.vue";
+import check from "vite-plugin-cwv";
+
+check({
+  /** 10秒检测一次 */
+  interval: 10,
+  checkCondition: () => {
+    /** 生产环境才开启版本检测 */
+    return import.meta.env.PROD;
+  },
+  diffVersionCb: () => {
+    const newV = window.confirm("检测到新版本,是否刷新页面?");
+    /** 检测到新版本后重新加载 */
+    if (newV) window.location.reload();
+  },
+});
 </script>
 
 <template>

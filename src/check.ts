@@ -1,20 +1,19 @@
 export interface ICheckOptions {
   /** 需要开启检测的条件函数，true为开启 */
-  checkCondition?: () => boolean;
+  checkCondition: () => boolean;
   /** 版本不一致的回调 */
   diffVersionCb?: () => void;
   /** 多少秒轮询一次 */
   interval?: number;
   /** appVersionFilePath */
-  /** 有些地址资源可能做了转发，所以该配置可以指定转发后的地址 */
+  /** 指定对比文件请求地址（应对资源转发的情况） */
   appVersionFilePath?: string;
 }
 
-const _options: ICheckOptions = {
+const _options: Omit<ICheckOptions, "checkCondition"> = {
   diffVersionCb: () => {},
   interval: 30,
   appVersionFilePath: "/appVersion.json",
-  checkCondition: () => (import.meta as any).env.PROD,
 };
 
 const versionConfig = {
@@ -53,11 +52,10 @@ function handleCheck(options: ICheckOptions) {
   });
 }
 
-export default function check(options?: ICheckOptions) {
-  const mergeOptions = Object.assign(_options, options || {});
-  console.log(mergeOptions);
+export default function check(options: ICheckOptions) {
+  const mergeOptions = Object.assign(_options, options);
   /** 只有生产环境才会轮训 */
-  if (!mergeOptions.checkCondition!()) return;
+  if (!mergeOptions.checkCondition()) return;
   /** 轮训版本文件 */
   versionConfig.timer = window.setInterval(() => {
     handleCheck(mergeOptions).then(() => {
