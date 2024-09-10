@@ -1,3 +1,7 @@
+# vite-plugin-cwv
+
+这是一个用于 web 应用版本检测的 vite 插件。
+
 ## 引入
 
 ```bash
@@ -47,16 +51,16 @@ check({
 </script>
 ```
 
-# Props
+## Props
 
-## ICwvOptions 配置
+### ICwvOptions 配置
 
 | 属性名           | 类型     | 默认值            | 描述                           |
 | ---------------- | -------- | ----------------- | ------------------------------ |
 | `appVersionFile` | `string` | `appVersion.json` | 自动生成版本检测文件的文件名。 |
 | `outDir`         | `string` | `dist`            | 文件输出的目录。               |
 
-## ICheckOptions 配置
+### ICheckOptions 配置
 
 | 属性名               | 类型            | 默认值             | 描述                                           |
 | -------------------- | --------------- | ------------------ | ---------------------------------------------- |
@@ -64,3 +68,11 @@ check({
 | `diffVersionCb`      | `() => void`    | `()=>{}`           | 版本不一致时的回调函数。                       |
 | `interval`           | `number`        | `30`               | 轮询间隔时间，单位为秒。                       |
 | `appVersionFilePath` | `string`        | `/appVersion.json` | 指定对比文件请求地址（应对资源转发的情况）。   |
+
+## Keywords
+
+- vite
+- plugin
+- check
+- web app
+- version

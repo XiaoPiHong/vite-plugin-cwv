@@ -1,6 +1,6 @@
 {
   "name": "vite-plugin-cwv",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Notification after checking web app version",
   "type": "module",
   "main": "dist/plugin.cjs",
@@ -26,6 +26,15 @@
     "README.md"
   ],
   "author": "XiaoPiHong",
+  "homepage": "https://github.com/XiaoPiHong/vite-plugin-cwv",
+  "bugs": {
+    "url": "https://github.com/XiaoPiHong/vite-plugin-cwv/issues",
+    "email": "260094892@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/XiaoPiHong/vite-plugin-cwv.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-typescript": "^11.1.6",
@@ -35,5 +44,12 @@
     "tslib": "^2.7.0",
     "typescript": "^5.5.4",
     "vite": "^5.4.3"
-  }
+  },
+  "keywords": [
+    "vite",
+    "plugin",
+    "check",
+    "web app",
+    "version"
+  ]
 }
