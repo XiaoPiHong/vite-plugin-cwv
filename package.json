@@ -3,18 +3,18 @@
   "version": "1.0.1",
   "description": "Notification after checking web app version",
   "type": "module",
-  "main": "dist/check.cjs",
-  "module": "dist/check.mjs",
+  "main": "dist/plugin.cjs",
+  "module": "dist/plugin.mjs",
   "exports": {
     ".": {
-      "import": "./dist/check.mjs",
-      "require": "./dist/check.cjs",
-      "types": "./dist/check.d.ts"
-    },
-    "./plugin": {
       "import": "./dist/plugin.mjs",
       "require": "./dist/plugin.cjs",
       "types": "./dist/plugin.d.ts"
+    },
+    "./check": {
+      "import": "./dist/check.mjs",
+      "require": "./dist/check.cjs",
+      "types": "./dist/check.d.ts"
     }
   },
   "scripts": {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import HelloWorld from "./components/HelloWorld.vue";
-import check from "vite-plugin-cwv";
+import check from "vite-plugin-cwv/check";
 
 check({
   /** 10秒检测一次 */
